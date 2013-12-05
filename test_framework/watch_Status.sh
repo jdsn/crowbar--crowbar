@@ -12,14 +12,5 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# 
-while true; do
-    clear
-    for f in "$HOME/testing/"*/*.status; do
-	[[ -f $f ]] || exit 0
-	echo "$f:"
-	cat "$f"
-	echo
-    done
-    sleep 5
-done
+#
+watch -n5 "ls $HOME/testing/*/*.status | xargs tail -n +1"
